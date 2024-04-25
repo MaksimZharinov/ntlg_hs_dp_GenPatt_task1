@@ -10,7 +10,7 @@ public class Person {
 
     public Person(String name, String surname) {
         NAME = name;
-        SURNAME = surname;
+        this.SURNAME = surname;
         age = OptionalInt.empty();
         addressKnows = false;
     }
@@ -22,14 +22,11 @@ public class Person {
         addressKnows = false;
     }
 
-    public Person(PersonBuilder personBuilder) {
-    }
-
     public boolean hasAge() {
-        return age.isPresent() ? true : false;
+        return age.isPresent();
     }
     public boolean hasAddress() {
-        return addressKnows ? true : false;
+        return addressKnows;
     }
 
     public String getName() {
@@ -56,9 +53,7 @@ public class Person {
     @Override
     public String toString() {
 
-        return (getName() + " " + getSurname() + "\n" +
-                "Age: " + getAge() + " " + "\n" +
-                "Address: " + getAddress());
+        return (getName() + " " + getSurname());
     }
 
     @Override

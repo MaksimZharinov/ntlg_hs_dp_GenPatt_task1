@@ -36,6 +36,13 @@ public class PersonBuilder {
         if (check.get("name") == null || check.get("surname") == null) {
             throw new IllegalStateException();
         }
-        return new Person(this);
+        Person person;
+        if (age != null) {
+            person = new Person(name, surname, age.getAsInt());
+        } else {
+            person = new Person(name, surname);
+        }
+        if (check.get("address") != null) person.setAddress(address);
+        return person;
     }
 }

@@ -22,6 +22,9 @@ public class Person {
         addressKnows = false;
     }
 
+    public Person(PersonBuilder personBuilder) {
+    }
+
     public boolean hasAge() {
         return age.isPresent() ? true : false;
     }
